@@ -8,5 +8,7 @@ target 'PocketAPI' do
   pod 'Telegraph'
   pod 'SnapKit', '~> 5.0'
   pod 'NotificationBannerSwift', '~> 3.0.0'
+  pod 'Entity', :git => 'https://github.com/ReQEnoxus/Entity.git'
+  pod 'SQLite.swift', '~> 0.12.0'
 
 end
