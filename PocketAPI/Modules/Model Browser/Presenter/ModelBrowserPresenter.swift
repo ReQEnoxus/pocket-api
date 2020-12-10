@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutput, ModelBrowserDataSourceDelegate {
     
@@ -43,11 +44,9 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
         
         dataSource.types.append(type)
         
-        let fieldsString = type.types.compactMap { (key, value) -> String? in
+        let fieldsString = type.attributes.compactMap { (key, value) -> String? in
             
-            guard let representation = SupportedPrimitives.stringRepresentation(value) else {
-                return .none
-            }
+            let representation = TypeFormatter.representation(of: value)
             
             return "\(key): \(representation)"
         }.joined(separator: "\n")

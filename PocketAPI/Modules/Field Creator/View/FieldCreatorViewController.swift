@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class FieldCreatorViewController: UIViewController {
     
     private class Appearance {
         
@@ -54,13 +54,12 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
         return label
     }()
     
-    lazy var pickerView: UIPickerView = {
+    lazy var chooseTypeButton: UIButton = {
         
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-    
-        return pickerView
+        let button = UIButton(type: .system)
+        button.tintColor = .systemGreen
+        button.setTitle("Select Type", for: .normal)
+        return button
     }()
     
     lazy var nameTextField: UITextField = {
@@ -101,20 +100,6 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
         button.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
         return button
-    }()
-    
-    lazy var typeTextField: UITextField = {
-        
-        let textField = UITextField()
-        textField.inputAccessoryView = toolBar
-        textField.placeholder = Appearance.selectTypeButtonTitle
-        textField.inputView = pickerView
-        textField.tintColor = .systemGreen
-        textField.keyboardType = .asciiCapable
-        
-        textField.delegate = self
-        
-        return textField
     }()
     
     lazy var toolBar: UIToolbar = {
@@ -158,8 +143,6 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         setupViewHierarchy()
         setupConstraints()
-        
-        pickerView.selectRow(.zero, inComponent: .zero, animated: true)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapOuterView))
         gesture.delegate = self
@@ -213,7 +196,7 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         containerStackView.addArrangedSubview(modalWindowTitle)
         containerStackView.addArrangedSubview(nameTextField)
-        containerStackView.addArrangedSubview(typeTextField)
+        containerStackView.addArrangedSubview(chooseTypeButton)
         containerStackView.addArrangedSubview(horizontalButtonStackView)
     }
     
@@ -238,31 +221,13 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
             make.width.equalToSuperview()
         }
         
-        typeTextField.snp.makeConstraints { make in
+        chooseTypeButton.snp.makeConstraints { make in
             make.width.equalToSuperview()
         }
         
         horizontalButtonStackView.snp.makeConstraints { make in
             make.width.equalToSuperview()
         }
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SupportedPrimitives.availableCases().count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return SupportedPrimitives.availableCases()[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        selectedIndex = row
-        typeTextField.text = SupportedPrimitives.availableCases()[row]
     }
     
     //MARK: - KeyboardObserver
@@ -307,7 +272,7 @@ class FieldCreatorViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     @objc func submitButtonPressed() {
-        presenter.didPressedCreate(name: nameTextField.text, selectedIndex: pickerView.selectedRow(inComponent: .zero))
+        presenter.didPressedCreate(name: nameTextField.text)
     }
     
     @objc func didTapOuterView() {
@@ -329,10 +294,6 @@ extension FieldCreatorViewController: UIGestureRecognizerDelegate {
 extension FieldCreatorViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        if !textField.hasText {
-            textField.text = SupportedPrimitives.availableCases()[pickerView.selectedRow(inComponent: .zero)]
-        }
         
         return true
     }

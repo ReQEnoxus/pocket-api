@@ -19,9 +19,9 @@ class FieldCreatorPresenter: FieldCreatorViewOutput {
         router.dismiss()
     }
     
-    func didPressedCreate(name: String?, selectedIndex: Int?) {
+    func didPressedCreate(name: String?) {
         
-        guard let name = name, !name.isEmpty, let index = selectedIndex else {
+        guard let name = name, !name.isEmpty else {
             
             router.showErrorAlert(message: "Please, specify a name for the field")
             return
@@ -34,7 +34,7 @@ class FieldCreatorPresenter: FieldCreatorViewOutput {
             let field = NameTypePair(name: name
                                             .replacingOccurrences(of: " ", with: String())
                                             .replacingOccurrences(of: ".", with: String()),
-                                     type: SupportedPrimitives.availableCases()[index])
+                                     type: .array(of: .array(of: .array(of: .primitive(type: .bool)))))
             interactor.createFieldAndNotify(field)
             router.dismiss()
         }

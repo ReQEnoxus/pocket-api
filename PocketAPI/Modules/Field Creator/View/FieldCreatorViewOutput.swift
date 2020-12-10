@@ -16,6 +16,5 @@ protocol FieldCreatorViewOutput: AnyObject {
     /// tells presenter that user has tapped on create button
     /// - Parameters:
     ///   - name: name of the field
-    ///   - selectedIndex: number of selected row inside of pickerview
-    func didPressedCreate(name: String?, selectedIndex: Int?)
+    func didPressedCreate(name: String?)
 }

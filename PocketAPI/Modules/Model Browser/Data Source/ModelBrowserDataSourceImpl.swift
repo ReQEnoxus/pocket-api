@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Entity
 
 class ModelBrowserDataSourceImpl: NSObject, ModelBrowserDataSource {
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 protocol EntityStorage: AnyObject {
     

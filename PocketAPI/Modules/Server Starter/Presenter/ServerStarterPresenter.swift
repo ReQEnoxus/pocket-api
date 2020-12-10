@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 class ServerStarterPresenter: ServerStarterViewOutput, ServerStarterInteractorOutput {
     
