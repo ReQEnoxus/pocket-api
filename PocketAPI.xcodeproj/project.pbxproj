@@ -10,6 +10,23 @@
 		7305B29E24A734DA007C0CCE /* NameTypePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7305B29D24A734DA007C0CCE /* NameTypePair.swift */; };
 		73112F63258107E0006A18C6 /* TypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F62258107E0006A18C6 /* TypeFormatter.swift */; };
 		73112F67258208CC006A18C6 /* FieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F66258208CC006A18C6 /* FieldViewModel.swift */; };
+		73112F6F25821086006A18C6 /* TypeConstructorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F6E25821086006A18C6 /* TypeConstructorViewController.swift */; };
+		73112F7225821181006A18C6 /* TypeConstructorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F7125821181006A18C6 /* TypeConstructorView.swift */; };
+		73112F762582190E006A18C6 /* TypeConstructorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F752582190E006A18C6 /* TypeConstructorAssembly.swift */; };
+		73112F7925824020006A18C6 /* TypeConstructorViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F7825824020006A18C6 /* TypeConstructorViewInput.swift */; };
+		73112F7C258240FE006A18C6 /* TypeConstructorViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F7B258240FE006A18C6 /* TypeConstructorViewOutput.swift */; };
+		73112F7F2582414D006A18C6 /* TypeConstructorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F7E2582414D006A18C6 /* TypeConstructorPresenter.swift */; };
+		73112F82258244DE006A18C6 /* TypeConstructorRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F81258244DE006A18C6 /* TypeConstructorRouterInput.swift */; };
+		73112F852582451E006A18C6 /* TypeConstructorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F842582451E006A18C6 /* TypeConstructorRouter.swift */; };
+		73112F8925824C1A006A18C6 /* TypeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F8825824C1A006A18C6 /* TypeCellViewModel.swift */; };
+		73112F8C25824E29006A18C6 /* TypeConstructorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F8B25824E29006A18C6 /* TypeConstructorInteractorInput.swift */; };
+		73112F8F25824E65006A18C6 /* TypeConstructorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F8E25824E65006A18C6 /* TypeConstructorInteractorOutput.swift */; };
+		73112F9225824EC6006A18C6 /* TypeConstructorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F9125824EC6006A18C6 /* TypeConstructorInteractor.swift */; };
+		73112F9F258254D1006A18C6 /* AvailableTypesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112F9E258254D1006A18C6 /* AvailableTypesViewModel.swift */; };
+		73112FA225826109006A18C6 /* TypeConstructorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112FA125826109006A18C6 /* TypeConstructorError.swift */; };
+		73112FA5258264D5006A18C6 /* CommonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112FA4258264D5006A18C6 /* CommonRouter.swift */; };
+		73112FA825827121006A18C6 /* FieldCreatorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112FA725827121006A18C6 /* FieldCreatorInteractorOutput.swift */; };
+		73112FAC25827364006A18C6 /* FieldCreatorViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73112FAB25827364006A18C6 /* FieldCreatorViewInput.swift */; };
 		7315845424A89328000766A1 /* ServerStarterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315845324A89328000766A1 /* ServerStarterViewController.swift */; };
 		7315845624A89532000766A1 /* ServerStarterViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315845524A89532000766A1 /* ServerStarterViewOutput.swift */; };
 		7315845824A89D9A000766A1 /* ServerStarterViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315845724A89D9A000766A1 /* ServerStarterViewInput.swift */; };
@@ -89,6 +106,23 @@
 		7305B29D24A734DA007C0CCE /* NameTypePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTypePair.swift; sourceTree = "<group>"; };
 		73112F62258107E0006A18C6 /* TypeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFormatter.swift; sourceTree = "<group>"; };
 		73112F66258208CC006A18C6 /* FieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldViewModel.swift; sourceTree = "<group>"; };
+		73112F6E25821086006A18C6 /* TypeConstructorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorViewController.swift; sourceTree = "<group>"; };
+		73112F7125821181006A18C6 /* TypeConstructorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorView.swift; sourceTree = "<group>"; };
+		73112F752582190E006A18C6 /* TypeConstructorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorAssembly.swift; sourceTree = "<group>"; };
+		73112F7825824020006A18C6 /* TypeConstructorViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorViewInput.swift; sourceTree = "<group>"; };
+		73112F7B258240FE006A18C6 /* TypeConstructorViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorViewOutput.swift; sourceTree = "<group>"; };
+		73112F7E2582414D006A18C6 /* TypeConstructorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorPresenter.swift; sourceTree = "<group>"; };
+		73112F81258244DE006A18C6 /* TypeConstructorRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorRouterInput.swift; sourceTree = "<group>"; };
+		73112F842582451E006A18C6 /* TypeConstructorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorRouter.swift; sourceTree = "<group>"; };
+		73112F8825824C1A006A18C6 /* TypeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCellViewModel.swift; sourceTree = "<group>"; };
+		73112F8B25824E29006A18C6 /* TypeConstructorInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorInteractorInput.swift; sourceTree = "<group>"; };
+		73112F8E25824E65006A18C6 /* TypeConstructorInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorInteractorOutput.swift; sourceTree = "<group>"; };
+		73112F9125824EC6006A18C6 /* TypeConstructorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorInteractor.swift; sourceTree = "<group>"; };
+		73112F9E258254D1006A18C6 /* AvailableTypesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTypesViewModel.swift; sourceTree = "<group>"; };
+		73112FA125826109006A18C6 /* TypeConstructorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConstructorError.swift; sourceTree = "<group>"; };
+		73112FA4258264D5006A18C6 /* CommonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRouter.swift; sourceTree = "<group>"; };
+		73112FA725827121006A18C6 /* FieldCreatorInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCreatorInteractorOutput.swift; sourceTree = "<group>"; };
+		73112FAB25827364006A18C6 /* FieldCreatorViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCreatorViewInput.swift; sourceTree = "<group>"; };
 		7315845324A89328000766A1 /* ServerStarterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStarterViewController.swift; sourceTree = "<group>"; };
 		7315845524A89532000766A1 /* ServerStarterViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStarterViewOutput.swift; sourceTree = "<group>"; };
 		7315845724A89D9A000766A1 /* ServerStarterViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStarterViewInput.swift; sourceTree = "<group>"; };
@@ -185,6 +219,7 @@
 		730483D024A0C034001BC32D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				73112F6925820FC9006A18C6 /* Type Constructor */,
 				73ED29A324AA2CA900D79A6F /* Request Notification Handler */,
 				7315844E24A8916D000766A1 /* Server Starter */,
 				7318667A24A758CE0075D1C6 /* Field Creator */,
@@ -229,6 +264,75 @@
 			isa = PBXGroup;
 			children = (
 				73112F66258208CC006A18C6 /* FieldViewModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		73112F6925820FC9006A18C6 /* Type Constructor */ = {
+			isa = PBXGroup;
+			children = (
+				73112F8725824BF5006A18C6 /* Entity */,
+				73112F74258218CA006A18C6 /* Assembly */,
+				73112F6D25821074006A18C6 /* Router */,
+				73112F6C2582106D006A18C6 /* Interactor */,
+				73112F6B25821068006A18C6 /* Presenter */,
+				73112F6A2582105F006A18C6 /* View */,
+			);
+			path = "Type Constructor";
+			sourceTree = "<group>";
+		};
+		73112F6A2582105F006A18C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73112F6E25821086006A18C6 /* TypeConstructorViewController.swift */,
+				73112F7125821181006A18C6 /* TypeConstructorView.swift */,
+				73112F7825824020006A18C6 /* TypeConstructorViewInput.swift */,
+				73112F7B258240FE006A18C6 /* TypeConstructorViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73112F6B25821068006A18C6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				73112F7E2582414D006A18C6 /* TypeConstructorPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		73112F6C2582106D006A18C6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				73112F8B25824E29006A18C6 /* TypeConstructorInteractorInput.swift */,
+				73112F8E25824E65006A18C6 /* TypeConstructorInteractorOutput.swift */,
+				73112F9125824EC6006A18C6 /* TypeConstructorInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		73112F6D25821074006A18C6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				73112F81258244DE006A18C6 /* TypeConstructorRouterInput.swift */,
+				73112F842582451E006A18C6 /* TypeConstructorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		73112F74258218CA006A18C6 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				73112F752582190E006A18C6 /* TypeConstructorAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		73112F8725824BF5006A18C6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				73112F8825824C1A006A18C6 /* TypeCellViewModel.swift */,
+				73112F9E258254D1006A18C6 /* AvailableTypesViewModel.swift */,
+				73112FA125826109006A18C6 /* TypeConstructorError.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -317,6 +421,7 @@
 			children = (
 				7318667E24A759AA0075D1C6 /* FieldCreatorViewController.swift */,
 				7318668024A75DB40075D1C6 /* FieldCreatorViewOutput.swift */,
+				73112FAB25827364006A18C6 /* FieldCreatorViewInput.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +439,7 @@
 			children = (
 				7318668C24A772A00075D1C6 /* FieldCreatorInteractorInput.swift */,
 				7318668E24A775410075D1C6 /* FieldCreatorInteractor.swift */,
+				73112FA725827121006A18C6 /* FieldCreatorInteractorOutput.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -369,6 +475,7 @@
 				734D665524A358AF00B77AE8 /* ViewController+NavBar.swift */,
 				734D666224A37F4800B77AE8 /* UITableView+Register.swift */,
 				7318669024A77F540075D1C6 /* UIAlertController+Message.swift */,
+				73112FA4258264D5006A18C6 /* CommonRouter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -751,6 +858,7 @@
 				734D667724A4CA0E00B77AE8 /* ModelCreatorDataSource.swift in Sources */,
 				73751F7624A0BF5300146009 /* ModelBrowserViewController.swift in Sources */,
 				734D667D24A4CEA400B77AE8 /* ModelCreatorPresenter.swift in Sources */,
+				73112FAC25827364006A18C6 /* FieldCreatorViewInput.swift in Sources */,
 				7315846A24A8AE82000766A1 /* DocsGenerator.swift in Sources */,
 				7318667124A741290075D1C6 /* ModelCreatorRouterInput.swift in Sources */,
 				7318666B24A73AB40075D1C6 /* ModelCreatorInteractorInput.swift in Sources */,
@@ -769,8 +877,11 @@
 				7369C5D424A3547500648513 /* ModelBrowserViewInput.swift in Sources */,
 				73112F63258107E0006A18C6 /* TypeFormatter.swift in Sources */,
 				73112F67258208CC006A18C6 /* FieldViewModel.swift in Sources */,
+				73112F6F25821086006A18C6 /* TypeConstructorViewController.swift in Sources */,
+				73112F7225821181006A18C6 /* TypeConstructorView.swift in Sources */,
 				734D668424A4D0B200B77AE8 /* ModelBrowserRouter.swift in Sources */,
 				7318667F24A759AA0075D1C6 /* FieldCreatorViewController.swift in Sources */,
+				73112F8F25824E65006A18C6 /* TypeConstructorInteractorOutput.swift in Sources */,
 				732EE84824AA0B7400AF448E /* ResponseEntity.swift in Sources */,
 				734D666524A3807A00B77AE8 /* ModelBrowserViewOutput.swift in Sources */,
 				73751F7224A0BF5300146009 /* AppDelegate.swift in Sources */,
@@ -788,24 +899,36 @@
 				73ED29A924AA2D7000D79A6F /* UserInfoKeys.swift in Sources */,
 				734D666124A37EF500B77AE8 /* ModelBrowserDataSourceImpl.swift in Sources */,
 				734D667B24A4CE0800B77AE8 /* ModelCreatorDataSourceImpl.swift in Sources */,
+				73112FA825827121006A18C6 /* FieldCreatorInteractorOutput.swift in Sources */,
 				7315847224A8B0D5000766A1 /* SupportedRequests.swift in Sources */,
 				7315846224A8A59E000766A1 /* ServerStarterRouterInput.swift in Sources */,
 				7318668324A770C40075D1C6 /* FieldCreatorPresenter.swift in Sources */,
 				734D666724A3809C00B77AE8 /* ModelBrowserPresenter.swift in Sources */,
+				73112FA5258264D5006A18C6 /* CommonRouter.swift in Sources */,
 				7315845424A89328000766A1 /* ServerStarterViewController.swift in Sources */,
 				7318667924A74B060075D1C6 /* ModelBrowserInteractorOutput.swift in Sources */,
 				7315845624A89532000766A1 /* ServerStarterViewOutput.swift in Sources */,
+				73112F8C25824E29006A18C6 /* TypeConstructorInteractorInput.swift in Sources */,
 				734D665924A35EFE00B77AE8 /* ViewModel.swift in Sources */,
+				73112F9225824EC6006A18C6 /* TypeConstructorInteractor.swift in Sources */,
 				734D667224A4AF5600B77AE8 /* ModelCreatorViewController.swift in Sources */,
+				73112F7C258240FE006A18C6 /* TypeConstructorViewOutput.swift in Sources */,
 				7315845A24A89FF0000766A1 /* ServerStarterPresenter.swift in Sources */,
+				73112F82258244DE006A18C6 /* TypeConstructorRouterInput.swift in Sources */,
 				7315845E24A8A113000766A1 /* ServerStarterInteractorOutput.swift in Sources */,
 				7315846024A8A3A4000766A1 /* ServerStarterInteractor.swift in Sources */,
+				73112F852582451E006A18C6 /* TypeConstructorRouter.swift in Sources */,
+				73112F8925824C1A006A18C6 /* TypeCellViewModel.swift in Sources */,
 				73751F7424A0BF5300146009 /* SceneDelegate.swift in Sources */,
 				7315846724A8A703000766A1 /* ServerStarterAssembly.swift in Sources */,
 				734D665624A358AF00B77AE8 /* ViewController+NavBar.swift in Sources */,
+				73112F762582190E006A18C6 /* TypeConstructorAssembly.swift in Sources */,
 				7318667524A74AB90075D1C6 /* ModelBrowserInteractorInput.swift in Sources */,
+				73112F7F2582414D006A18C6 /* TypeConstructorPresenter.swift in Sources */,
+				73112F7925824020006A18C6 /* TypeConstructorViewInput.swift in Sources */,
 				7318668F24A775410075D1C6 /* FieldCreatorInteractor.swift in Sources */,
 				73CAE20F24A0EF410059C945 /* IPUtil.swift in Sources */,
+				73112FA225826109006A18C6 /* TypeConstructorError.swift in Sources */,
 				734D666324A37F4800B77AE8 /* UITableView+Register.swift in Sources */,
 				7318668624A771630075D1C6 /* FieldCreatorRouterInput.swift in Sources */,
 				734D667924A4CB3600B77AE8 /* ModelCreatorViewOutput.swift in Sources */,
@@ -814,6 +937,7 @@
 				7318667724A74AE80075D1C6 /* ModelBrowserInteractor.swift in Sources */,
 				7315845C24A8A03F000766A1 /* ServerStarterInteractorInput.swift in Sources */,
 				73ED29A724AA2D0100D79A6F /* RequestNotificationHandlerImpl.swift in Sources */,
+				73112F9F258254D1006A18C6 /* AvailableTypesViewModel.swift in Sources */,
 				7315846E24A8AEEE000766A1 /* DocsGeneratorImpl.swift in Sources */,
 				7318667324A7417A0075D1C6 /* ModelCreatorRouter.swift in Sources */,
 				734D665F24A3756D00B77AE8 /* ModelViewCell.swift in Sources */,

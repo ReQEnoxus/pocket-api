@@ -24,9 +24,12 @@ class FieldCreatorAssembly {
         
         presenter.router = router
         presenter.interactor = interactor
+        presenter.view = view
         presenter.usedNames = usedNames
         
         router.view = view
+        
+        interactor.presenter = presenter
         
         return view
     }

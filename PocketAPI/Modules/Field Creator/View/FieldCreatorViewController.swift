@@ -59,6 +59,7 @@ class FieldCreatorViewController: UIViewController {
         let button = UIButton(type: .system)
         button.tintColor = .systemGreen
         button.setTitle("Select Type", for: .normal)
+        button.addTarget(self, action: #selector(selectTypeButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -153,6 +154,7 @@ class FieldCreatorViewController: UIViewController {
         
         view.addGestureRecognizer(gesture)
         subscribeToKeyboardNotifications()
+        presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -221,10 +223,6 @@ class FieldCreatorViewController: UIViewController {
             make.width.equalToSuperview()
         }
         
-        chooseTypeButton.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-        }
-        
         horizontalButtonStackView.snp.makeConstraints { make in
             make.width.equalToSuperview()
         }
@@ -275,6 +273,10 @@ class FieldCreatorViewController: UIViewController {
         presenter.didPressedCreate(name: nameTextField.text)
     }
     
+    @objc func selectTypeButtonPressed() {
+        presenter.didPressedSelectType()
+    }
+    
     @objc func didTapOuterView() {
         presenter.didPressedCancel()
     }
@@ -284,17 +286,15 @@ class FieldCreatorViewController: UIViewController {
     }
 }
 
+extension FieldCreatorViewController: FieldCreatorViewInput {
+    func displayCurrentTypeName(with text: String) {
+        chooseTypeButton.setTitle(text, for: .normal)
+    }
+}
+
 extension FieldCreatorViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return (touch.view === self.view)
-    }
-}
-
-extension FieldCreatorViewController: UITextFieldDelegate {
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        return true
     }
 }

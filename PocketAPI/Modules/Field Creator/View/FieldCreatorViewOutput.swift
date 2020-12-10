@@ -17,4 +17,8 @@ protocol FieldCreatorViewOutput: AnyObject {
     /// - Parameters:
     ///   - name: name of the field
     func didPressedCreate(name: String?)
+    
+    func didPressedSelectType()
+    
+    func viewDidLoad()
 }
