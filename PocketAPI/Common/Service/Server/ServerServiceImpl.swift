@@ -25,12 +25,12 @@ class ServerServiceImpl: ServerService {
         }
         else {
             
-//            let storage = EntityStorageImpl()
+            let storage = EntityStorageImpl()
             let encoder = BasicEntityEncoder()
             let decoder = BasicEntityDecoder()
             
             let service = ServerServiceImpl()
-//            service.storage = storage
+            service.storage = storage
             service.encoder = encoder
             service.decoder = decoder
             

@@ -26,7 +26,7 @@ final class TypeConstructorView: UIView {
         let label = UILabel()
         label.font = UIFont(name: "Futura-Bold", size: 24)
         label.textAlignment = .center
-        label.backgroundColor = .systemBackground
+        label.textColor = .systemGreen
         return label
     }()
     

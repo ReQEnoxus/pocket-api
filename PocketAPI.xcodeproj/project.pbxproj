@@ -58,6 +58,7 @@
 		7318668D24A772A00075D1C6 /* FieldCreatorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7318668C24A772A00075D1C6 /* FieldCreatorInteractorInput.swift */; };
 		7318668F24A775410075D1C6 /* FieldCreatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7318668E24A775410075D1C6 /* FieldCreatorInteractor.swift */; };
 		7318669124A77F540075D1C6 /* UIAlertController+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7318669024A77F540075D1C6 /* UIAlertController+Message.swift */; };
+		732474A12584FB3700CD243C /* EntityStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732474A02584FB3700CD243C /* EntityStorageImpl.swift */; };
 		732EE84824AA0B7400AF448E /* ResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732EE84724AA0B7400AF448E /* ResponseEntity.swift */; };
 		734D665624A358AF00B77AE8 /* ViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734D665524A358AF00B77AE8 /* ViewController+NavBar.swift */; };
 		734D665924A35EFE00B77AE8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734D665824A35EFE00B77AE8 /* ViewModel.swift */; };
@@ -154,6 +155,7 @@
 		7318668C24A772A00075D1C6 /* FieldCreatorInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCreatorInteractorInput.swift; sourceTree = "<group>"; };
 		7318668E24A775410075D1C6 /* FieldCreatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCreatorInteractor.swift; sourceTree = "<group>"; };
 		7318669024A77F540075D1C6 /* UIAlertController+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Message.swift"; sourceTree = "<group>"; };
+		732474A02584FB3700CD243C /* EntityStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityStorageImpl.swift; sourceTree = "<group>"; };
 		732EE84724AA0B7400AF448E /* ResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEntity.swift; sourceTree = "<group>"; };
 		734D665524A358AF00B77AE8 /* ViewController+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NavBar.swift"; sourceTree = "<group>"; };
 		734D665824A35EFE00B77AE8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -701,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				73CAE20824A0DB830059C945 /* EntityStorage.swift */,
+				732474A02584FB3700CD243C /* EntityStorageImpl.swift */,
 			);
 			path = "Entity Storage";
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				7315845424A89328000766A1 /* ServerStarterViewController.swift in Sources */,
 				7318667924A74B060075D1C6 /* ModelBrowserInteractorOutput.swift in Sources */,
 				7315845624A89532000766A1 /* ServerStarterViewOutput.swift in Sources */,
+				732474A12584FB3700CD243C /* EntityStorageImpl.swift in Sources */,
 				73112F8C25824E29006A18C6 /* TypeConstructorInteractorInput.swift in Sources */,
 				734D665924A35EFE00B77AE8 /* ViewModel.swift in Sources */,
 				73112F9225824EC6006A18C6 /* TypeConstructorInteractor.swift in Sources */,
