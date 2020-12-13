@@ -31,7 +31,7 @@ class ModelCreatorAssembly {
         router.view = view
         
         interactor.presenter = presenter
-        interactor.typeManager = BasicTypeManager.shared
+        interactor.typeManager = TypeManagerWrapper.shared
         
         return UINavigationController(rootViewController: view)
     }

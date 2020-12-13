@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Entity
 
 protocol ModelBrowserDataSourceDelegate: AnyObject{
     
-    func didDeleteItemFromDataSource()
+    func didRequestToDelete(type: Type, at: IndexPath)
 }

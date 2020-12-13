@@ -27,7 +27,7 @@ class ServerServiceImpl: ServerService {
             
             let storage = EntityStorageImpl()
             let encoder = BasicEntityEncoder()
-            let decoder = BasicEntityDecoder()
+            let decoder = BasicEntityDecoder(typeManager: TypeManagerWrapper.shared)
             
             let service = ServerServiceImpl()
             service.storage = storage

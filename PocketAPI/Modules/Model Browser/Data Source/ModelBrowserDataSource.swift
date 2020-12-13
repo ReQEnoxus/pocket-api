@@ -19,4 +19,6 @@ protocol ModelBrowserDataSource: AnyObject, UITableViewDataSource {
     
     /// actual types that are represented by viewmodels
     var types: [Type] { get set }
+    
+    func delete(at indexPath: IndexPath)
 }

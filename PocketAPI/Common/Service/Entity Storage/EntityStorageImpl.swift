@@ -20,7 +20,7 @@ final class EntityStorageImpl: EntityStorage {
     
     init(
         encoder: EntityEncoder = BasicEntityEncoder(),
-        decoder: EntityDecoder = BasicEntityDecoder()
+        decoder: EntityDecoder = BasicEntityDecoder(typeManager: TypeManagerWrapper.shared)
     ) {
         self.encoder = encoder
         self.decoder = decoder
@@ -60,20 +60,25 @@ final class EntityStorageImpl: EntityStorage {
         guard let encoded = encoder.encode(entity: instance)?.datatypeValue else { fatalError() }
         let type = Expression<String>("type_name")
         let content = Expression<Blob>("content")
-        try? db?.run(table.insert(type <- instance.type.name, content <- encoded))
+        _ = try? db?.run(table.insert(type <- instance.type.name, content <- encoded))
         
         return instance
     }
     
     func deleteInstance(of type: Type, by id: Int) {
         let query = table.filter(Expression<String>("type_name") == type.name && Expression<Int64>("id") == Int64(id)).limit(1)
-        try! db?.run(query.delete())
+        _ = try? db?.run(query.delete())
+    }
+    
+    func deleteAllInstances(of type: Type) {
+        let query = table.filter(Expression<String>("type_name") == type.name)
+        _ = try? db?.run(query.delete())
     }
     
     //MARK: - SQLite stack
     private func createMainTable() {
         let table = Table(tableName)
-        try? db?.run(table.create(ifNotExists: true) { t in
+        _ = try? db?.run(table.create(ifNotExists: true) { t in
             t.column(Expression<Int64>("id"), primaryKey: .autoincrement)
             t.column(Expression<String>("type_name"))
             t.column(Expression<Blob>("content"))

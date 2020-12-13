@@ -1,6 +1,6 @@
 PODS:
   - CocoaAsyncSocket (7.6.4)
-  - Entity (0.1.3)
+  - Entity (0.1.7)
   - HTTPParserC (2.9.2)
   - MarqueeLabel (4.0.5)
   - NotificationBannerSwift (3.0.2):
@@ -37,12 +37,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Entity:
-    :commit: de8e9ca123ce729f442ee53271e205d3bbddf49d
+    :commit: 8b7144a37d690d47aeb8623eb834b6300b2eef58
     :git: https://github.com/ReQEnoxus/Entity.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
-  Entity: 6f872a577050f69394a1fceacc9608979513c27b
+  Entity: 557ca576788ffde9db2045a0eba69c08e5fe3a47
   HTTPParserC: 1ed389f80bb57a5b967d87d5358b8a94418394ee
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e

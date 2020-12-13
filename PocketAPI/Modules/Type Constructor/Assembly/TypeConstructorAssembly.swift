@@ -26,7 +26,7 @@ final class TypeConstructorAssembly {
         router.view = view
         
         interactor.presenter = presenter
-        interactor.typeManager = BasicTypeManager.shared
+        interactor.typeManager = TypeManagerWrapper.shared
         interactor.setCurrentType(with: type)
         
         return UINavigationController(rootViewController: view)

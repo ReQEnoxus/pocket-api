@@ -38,15 +38,17 @@ class ModelBrowserDataSourceImpl: NSObject, ModelBrowserDataSource {
         
         if editingStyle == .delete {
             
-            models.remove(at: indexPath.row)
-            types.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-            delegate?.didDeleteItemFromDataSource()
+            let type = types[indexPath.row]
+            delegate?.didRequestToDelete(type: type, at: indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return isMutable
+    }
+    
+    func delete(at indexPath: IndexPath) {
+        models.remove(at: indexPath.row)
+        types.remove(at: indexPath.row)
     }
 }
