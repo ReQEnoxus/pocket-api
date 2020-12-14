@@ -6,7 +6,7 @@
 //  Copyright © 2020 Enoxus. All rights reserved.
 //
 
-import Foundation
+import Entity
 
 protocol FieldCreatorRouterInput: AnyObject {
     
@@ -16,4 +16,6 @@ protocol FieldCreatorRouterInput: AnyObject {
     /// tells router to show error alert with given message
     /// - Parameter message: message to display
     func showErrorAlert(message: String)
+    
+    func showTypeConstructor(with type: BasicType?)
 }

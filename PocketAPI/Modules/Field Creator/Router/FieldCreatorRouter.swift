@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Entity
 
 class FieldCreatorRouter: FieldCreatorRouterInput {
     
@@ -20,5 +21,9 @@ class FieldCreatorRouter: FieldCreatorRouterInput {
     func showErrorAlert(message: String) {
         
         view.present(UIAlertController.messageAlert(title: "Error", message: message, tintColor: .systemGreen), animated: true)
+    }
+    
+    func showTypeConstructor(with type: BasicType? = nil) {
+        view.present(TypeConstructorAssembly.configureModule(type: type), animated: true)
     }
 }

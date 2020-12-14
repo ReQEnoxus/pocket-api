@@ -7,27 +7,25 @@
 //
 
 import Foundation
+import Entity
 
 class ModelCreatorInteractor: ModelCreatorInteractorInput {
     
     weak var presenter: ModelCreatorInteractorOutput!
+    var typeManager: TypeManager!
     
     func subscribeToNameTypePairCreation() {
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .didCreateNewNameTypePair, object: .none)
     }
     
     func createTypeAndNotify(name: String, fields: [NameTypePair]) {
+        var typeFields: Dictionary<String, BasicType> = [:]
+        fields.forEach {
+            typeFields[$0.name] = $0.type
+        }
+        let type = Type(name: name, attributes: typeFields)
         
-        var typeFields: [String: SupportedPrimitives] = [:]
-        
-        fields.forEach({ field in
-            
-            guard let primitive = SupportedPrimitives.fromStringRepresentation(field.type) else { return }
-            
-            return typeFields[field.name] = primitive
-        })
-        
-        let type = Type(name: name, types: typeFields)
+        typeManager.register(type: type)
         
         NotificationCenter.default.post(name: .didCreateNewType, object: .none, userInfo: [UserInfoKeys.newType: type])
     }

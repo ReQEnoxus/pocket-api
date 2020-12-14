@@ -13,4 +13,6 @@ protocol FieldCreatorInteractorInput: AnyObject {
     /// tells interactor to create a field and notify observers of its creation
     /// - Parameter field: field contents
     func createFieldAndNotify(_ field: NameTypePair)
+    
+    func startObservingNewBasicTypeNotifications()
 }

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Entity
 
 /// convenience struct for creating fields
 struct NameTypePair {
     
     let name: String
-    let type: String
+    let type: BasicType
 }

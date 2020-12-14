@@ -8,6 +8,7 @@
 
 import Foundation
 import Telegraph
+import Entity
 
 class ServerServiceImpl: ServerService {
     
@@ -25,8 +26,8 @@ class ServerServiceImpl: ServerService {
         else {
             
             let storage = EntityStorageImpl()
-            let encoder = EntityEncoderImpl()
-            let decoder = EntityDecoderImpl()
+            let encoder = BasicEntityEncoder()
+            let decoder = BasicEntityDecoder(typeManager: TypeManagerWrapper.shared)
             
             let service = ServerServiceImpl()
             service.storage = storage
@@ -106,7 +107,7 @@ class ServerServiceImpl: ServerService {
                     server.route(.GET, "/\(type.name.lowercased())") { [unowned self] request -> HTTPResponse? in
                         
                         let allInstances = self.storage.getAllInstances(of: type)
-                        let responseData = self.encoder.encode(objects: allInstances)
+                        let responseData = self.encoder.encode(entities: allInstances)
                         
                         if let data = responseData {
                             return HTTPResponse(.ok, version: .default, headers: .empty, body: data)
@@ -125,7 +126,7 @@ class ServerServiceImpl: ServerService {
                             
                             let requestedEntity = self.storage.getInstance(of: type, by: requestedId)
                             
-                            if let entity = requestedEntity, let encodedEntity = self.encoder.encode(entity) {
+                            if let entity = requestedEntity, let encodedEntity = self.encoder.encode(entity: entity) {
                                 return HTTPResponse(.ok, version: .default, headers: .empty, body: encodedEntity)
                             }
                             else {
@@ -146,10 +147,10 @@ class ServerServiceImpl: ServerService {
                         
                         let data = request.body
                         
-                        if let decodedEntity = self.decoder.decode(data, of: type) {
+                        if let decodedEntity = self.decoder.decode(from: data, of: type) {
                             
                             // force unwrapping because the entity was successfully decoded in the line above
-                            return HTTPResponse(.ok, version: .default, headers: .empty, body: self.encoder.encode(self.storage.saveInstance(decodedEntity))!)
+                            return HTTPResponse(.ok, version: .default, headers: .empty, body: self.encoder.encode(entity: self.storage.saveInstance(decodedEntity))!)
                         }
                         else {
                             
@@ -165,7 +166,7 @@ class ServerServiceImpl: ServerService {
                             
                             let requestedEntity = self.storage.getInstance(of: type, by: requestedId)
                             
-                            if let entity = requestedEntity, let encodedEntity = self.encoder.encode(entity) {
+                            if let entity = requestedEntity, let encodedEntity = self.encoder.encode(entity: entity) {
                                 
                                 self.storage.deleteInstance(of: type, by: requestedId)
                                 return HTTPResponse(.ok, version: .default, headers: .empty, body: encodedEntity)

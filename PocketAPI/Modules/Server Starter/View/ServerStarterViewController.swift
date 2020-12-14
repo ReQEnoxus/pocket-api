@@ -33,13 +33,6 @@ class ServerStarterViewController: UIViewController, ServerStarterViewInput {
     
     var presenter: ServerStarterViewOutput!
     
-    lazy var mainScrollView: UIScrollView = {
-        
-        let scrollView = UIScrollView()
-        
-        return scrollView
-    }()
-    
     lazy var startButton: UIButton = {
         
         let button = UIButton(type: .system)
@@ -64,13 +57,13 @@ class ServerStarterViewController: UIViewController, ServerStarterViewInput {
         return label
     }()
     
-    lazy var documentationLabel: UILabel = {
+    lazy var documentationLabel: UITextView = {
         
-        let label = UILabel()
+        let label = UITextView()
         label.font = UIFont(name: Appearance.promptFontName, size: Appearance.promptFontSize)
         label.textColor = .systemGray
-        label.numberOfLines = .zero
         label.textAlignment = .left
+        label.isScrollEnabled = true
         
         return label
     }()
@@ -107,18 +100,13 @@ class ServerStarterViewController: UIViewController, ServerStarterViewInput {
     
     func setupViewHierarchy() {
         
-        view.addSubview(mainScrollView)
-        mainScrollView.addSubview(startButton)
-        mainScrollView.addSubview(promptLabel)
-        mainScrollView.addSubview(documentationLabel)
+        view.addSubview(startButton)
+        view.addSubview(promptLabel)
+        view.addSubview(documentationLabel)
         navigationItem.leftBarButtonItem = closeButton
     }
     
     func setupConstraints() {
-        
-        mainScrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
         
         startButton.snp.makeConstraints { make in
             

@@ -16,6 +16,7 @@ class ModelCreatorPresenter: ModelCreatorViewOutput, ModelCreatorInteractorOutpu
     var router: ModelCreatorRouterInput!
     
     var alreadyUsedNames: [String]!
+    var currentFields: [NameTypePair] = []
     
     func initialSetup() {
         
@@ -44,7 +45,7 @@ class ModelCreatorPresenter: ModelCreatorViewOutput, ModelCreatorInteractorOutpu
                 router.showErrorAlert(message: "Please, specify at least one field to the model")
             }
             else {
-                interactor.createTypeAndNotify(name: name.replacingOccurrences(of: " ", with: String()), fields: dataSource.models)
+                interactor.createTypeAndNotify(name: name.replacingOccurrences(of: " ", with: String()), fields: currentFields)
                 router.dismiss()
             }
         }
@@ -59,8 +60,15 @@ class ModelCreatorPresenter: ModelCreatorViewOutput, ModelCreatorInteractorOutpu
         
         if !dataSource.models.contains(where: { $0.name == nameTypePair.name }) {
             
+            currentFields.append(nameTypePair)
             let indexToAdd = IndexPath(row: dataSource.models.count, section: .zero)
-            dataSource.models.append(nameTypePair)
+            let typeRepresentation = TypeFormatter.representation(of: nameTypePair.type)
+            dataSource.models.append(
+                FieldViewModel(
+                    name: nameTypePair.name,
+                    type: typeRepresentation
+                )
+            )
             
             view.updateTableView(deletions: [], insertions: [indexToAdd], modifications: [])
         }

@@ -15,4 +15,5 @@ enum UserInfoKeys {
     case serverState
     case newType
     case newField
+    case newBasicType
 }

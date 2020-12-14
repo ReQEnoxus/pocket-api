@@ -27,6 +27,8 @@ class ModelBrowserAssembly {
         presenter.interactor = interactor
         
         interactor.presenter = presenter
+        interactor.entityStorage = EntityStorageImpl()
+        interactor.dependencyCheckService = DependencyCheckService()
         
         router.view = view
         

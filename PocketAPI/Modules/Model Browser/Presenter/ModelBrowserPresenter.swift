@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutput, ModelBrowserDataSourceDelegate {
     
@@ -15,6 +16,8 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
     var router: ModelBrowserRouterInput!
     var interactor: ModelBrowserInteractorInput!
     
+    private var indexPathToDelete: IndexPath?
+    
     func initialSetup() {
         
         view.registerDataSource(dataSource)
@@ -22,6 +25,7 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
         view.displayTableView()
         interactor.subscribeToTypeCreationNotifications()
         interactor.subscribeToServerStateNotifications()
+        interactor.loadInitialTypes()
     }
     
     func didPullTable() {
@@ -43,11 +47,9 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
         
         dataSource.types.append(type)
         
-        let fieldsString = type.types.compactMap { (key, value) -> String? in
+        let fieldsString = type.attributes.compactMap { (key, value) -> String? in
             
-            guard let representation = SupportedPrimitives.stringRepresentation(value) else {
-                return .none
-            }
+            let representation = TypeFormatter.representation(of: value)
             
             return "\(key): \(representation)"
         }.joined(separator: "\n")
@@ -72,6 +74,34 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
         view.setShowingPlaceholder(false)
     }
     
+    func didFinishTaskWith(error: Error) {
+        router.showErrorAlert(message: error.localizedDescription)
+    }
+    
+    func didLoadInitialTypes(_ types: [Type]) {
+        guard !types.isEmpty else { return }
+        
+        dataSource.types += types
+        
+        types.forEach { type in
+            let fieldsString = type.attributes.compactMap { (key, value) -> String? in
+                
+                let representation = TypeFormatter.representation(of: value)
+                
+                return "\(key): \(representation)"
+            }.joined(separator: "\n")
+            
+            let endpointsString = "@GET /\(type.name.lowercased())\n@GET /\(type.name.lowercased())/{id}\n@POST /\(type.name.lowercased())\n@DELETE /\(type.name.lowercased())/{id}"
+            
+            let viewModel = ViewModel(name: type.name, fields: fieldsString, endpoints: endpointsString)
+            
+            dataSource.models.append(viewModel)
+        }
+        
+        view.reloadData()
+        view.setShowingPlaceholder(false)
+    }
+    
     func didReceiveServerStateChangeNotification(shouldTurnImmutable: Bool) {
         
         if shouldTurnImmutable {
@@ -82,11 +112,20 @@ class ModelBrowserPresenter: ModelBrowserViewOutput, ModelBrowserInteractorOutpu
         }
     }
     
-    //MARK: - ModelBrowserDataSource Delegate
-    func didDeleteItemFromDataSource() {
+    func didDeleteItemSuccessfully() {
+        guard let indexPath = indexPathToDelete else { return }
+        dataSource.delete(at: indexPath)
+        view.updateTableView(deletions: [indexPath], insertions: [], modifications: [])
+        indexPathToDelete = nil
         
         if dataSource.models.isEmpty {
             view.setShowingPlaceholder(true)
         }
+    }
+    
+    //MARK: - ModelBrowserDataSource Delegate
+    func didRequestToDelete(type: Type, at: IndexPath) {
+        indexPathToDelete = at
+        interactor.deleteType(by: type.name)
     }
 }

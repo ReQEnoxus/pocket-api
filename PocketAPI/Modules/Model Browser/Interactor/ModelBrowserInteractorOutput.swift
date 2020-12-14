@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 protocol ModelBrowserInteractorOutput: AnyObject {
     
@@ -17,4 +18,10 @@ protocol ModelBrowserInteractorOutput: AnyObject {
     /// tells presenter that server has changed its state and whether data source should turn immutable or not
     /// - Parameter shouldTurnImmutable: should data source turn immutable
     func didReceiveServerStateChangeNotification(shouldTurnImmutable: Bool)
+    
+    func didLoadInitialTypes(_ types: [Type])
+    
+    func didFinishTaskWith(error: Error)
+    
+    func didDeleteItemSuccessfully()
 }

@@ -2,50 +2,86 @@
 //  EntityStorageImpl.swift
 //  PocketAPI
 //
-//  Created by Enoxus on 22.06.2020.
+//  Created by Enoxus on 12.12.2020.
 //  Copyright © 2020 Enoxus. All rights reserved.
 //
 
 import Foundation
+import Entity
+import SQLite
 
-class EntityStorageImpl: EntityStorage {
+final class EntityStorageImpl: EntityStorage {
     
-    var storage = [Entity]()
+    private let db: Connection?
+    private let tableName = "Entities"
+    private let encoder: EntityEncoder
+    private let decoder: EntityDecoder
+    private var table: Table { Table(tableName) }
     
-    private let storageQueue = DispatchQueue(label: "storage_queue")
+    init(
+        encoder: EntityEncoder = BasicEntityEncoder(),
+        decoder: EntityDecoder = BasicEntityDecoder(typeManager: TypeManagerWrapper.shared)
+    ) {
+        self.encoder = encoder
+        self.decoder = decoder
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+        ).first!
+
+        db = try? Connection("\(path)/db.sqlite3")
+        
+        createMainTable()
+    }
+    
     
     func getAllInstances(of type: Type) -> [Entity] {
-        return storage.filter({ $0.type.name == type.name })
+        guard let query = try? db?.prepare(table.filter(Expression<String>("type_name") == type.name)) else { return [] }
+        return query.compactMap { row in
+            let blob = row[Expression<Blob>("content")]
+            let data = Data.fromDatatypeValue(blob)
+            var entity = decoder.decode(from: data, of: type)
+            entity?.fields["id"] = row[Expression<Int64>("id")]
+            return entity
+        }
     }
     
     func getInstance(of type: Type, by id: Int) -> Entity? {
-        return storage.filter({ $0.type.name == type.name && $0.fields["id"] is Int && $0.fields["id"] as! Int == id }).first
+        guard let query = try? db?.prepare(table.filter(Expression<String>("type_name") == type.name && Expression<Int64>("id") == Int64(id)).limit(1)) else { return nil }
+        return query.compactMap { row in
+            let blob = row[Expression<Blob>("content")]
+            let data = Data.fromDatatypeValue(blob)
+            var entity = decoder.decode(from: data, of: type)
+            entity?.fields["id"] = row[Expression<Int64>("id")]
+            return entity
+        }.first
     }
     
     func saveInstance(_ instance: Entity) -> Entity {
+        guard let encoded = encoder.encode(entity: instance)?.datatypeValue else { fatalError() }
+        let type = Expression<String>("type_name")
+        let content = Expression<Blob>("content")
+        _ = try? db?.run(table.insert(type <- instance.type.name, content <- encoded))
         
-        return storageQueue.sync {
-            
-            var instanceToAdd = instance
-            
-            guard let lastOfThisType = storage.last(where: { $0.type.name == instance.type.name }), lastOfThisType.fields["id"] is Int, let id = lastOfThisType.fields["id"] as? Int else {
-                
-                instanceToAdd.fields["id"] = Int.zero
-                storage.append(instanceToAdd)
-                return instanceToAdd
-            }
-            
-            instanceToAdd.fields["id"] = id + 1
-            storage.append(instanceToAdd)
-            
-            return instanceToAdd
-        }
+        return instance
     }
     
     func deleteInstance(of type: Type, by id: Int) {
-        
-        storageQueue.sync {
-            storage.removeAll(where: { $0.type.name == type.name && $0.fields["id"] is Int && $0.fields["id"] as! Int == id })
-        }
+        let query = table.filter(Expression<String>("type_name") == type.name && Expression<Int64>("id") == Int64(id)).limit(1)
+        _ = try? db?.run(query.delete())
+    }
+    
+    func deleteAllInstances(of type: Type) {
+        let query = table.filter(Expression<String>("type_name") == type.name)
+        _ = try? db?.run(query.delete())
+    }
+    
+    //MARK: - SQLite stack
+    private func createMainTable() {
+        let table = Table(tableName)
+        _ = try? db?.run(table.create(ifNotExists: true) { t in
+            t.column(Expression<Int64>("id"), primaryKey: .autoincrement)
+            t.column(Expression<String>("type_name"))
+            t.column(Expression<Blob>("content"))
+        })
     }
 }

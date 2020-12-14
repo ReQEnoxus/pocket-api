@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Entity
 
 protocol EntityStorage: AnyObject {
     
@@ -29,4 +30,6 @@ protocol EntityStorage: AnyObject {
     ///   - type: type of entity
     ///   - id: id of entity
     func deleteInstance(of type: Type, by id: Int)
+    
+    func deleteAllInstances(of type: Type)
 }

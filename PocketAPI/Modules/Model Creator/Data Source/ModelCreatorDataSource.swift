@@ -12,5 +12,5 @@ import UIKit
 protocol ModelCreatorDataSource: UITableViewDataSource {
     
     /// models to be used for table view
-    var models: [NameTypePair] { get set }
+    var models: [FieldViewModel] { get set }
 }

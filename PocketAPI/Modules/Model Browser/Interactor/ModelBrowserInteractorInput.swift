@@ -15,4 +15,8 @@ protocol ModelBrowserInteractorInput: AnyObject {
     
     /// tells interactor to subscribe to server state changes
     func subscribeToServerStateNotifications()
+    
+    func loadInitialTypes()
+    
+    func deleteType(by name: String)
 }

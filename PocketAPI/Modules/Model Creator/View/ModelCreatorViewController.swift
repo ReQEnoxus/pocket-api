@@ -70,7 +70,7 @@ class ModelCreatorViewController: UIViewController, ModelCreatorViewInput {
     
     lazy var submitButton: UIBarButtonItem = {
         
-        let item = UIBarButtonItem(title: Appearance.submitButtonTitle, style: .plain, target: self, action: #selector(submitButtonTapped))
+        let item = UIBarButtonItem(title: Appearance.submitButtonTitle, style: .done, target: self, action: #selector(submitButtonTapped))
         
         item.tintColor = .systemGreen
         

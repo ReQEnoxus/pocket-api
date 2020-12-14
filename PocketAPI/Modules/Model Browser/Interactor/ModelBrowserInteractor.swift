@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import Entity
 
 class ModelBrowserInteractor: ModelBrowserInteractorInput {
     
     weak var presenter: ModelBrowserInteractorOutput!
+    var entityStorage: EntityStorage!
+    var dependencyCheckService: DependencyCheckServiceProtocol!
     
     func subscribeToTypeCreationNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNewTypeCreationNotification(_:)), name: .didCreateNewType, object: .none)
@@ -18,6 +21,22 @@ class ModelBrowserInteractor: ModelBrowserInteractorInput {
     
     func subscribeToServerStateNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveServerStateChangeNotification(_:)), name: .didChangeServerState, object: .none)
+    }
+    
+    func loadInitialTypes() {
+        presenter.didLoadInitialTypes(TypeManagerWrapper.shared.availableTypes)
+    }
+    
+    func deleteType(by name: String) {
+        guard let type = TypeManagerWrapper.shared.type(named: name) else { return }
+        if dependencyCheckService.isPossibleToDelete(type: type) {
+            TypeManagerWrapper.shared.deleteType(named: name)
+            entityStorage.deleteAllInstances(of: type)
+            presenter.didDeleteItemSuccessfully()
+        }
+        else {
+            presenter.didFinishTaskWith(error: EntityError.dependencyCheckFailed)
+        }
     }
     
     //MARK: - Observer

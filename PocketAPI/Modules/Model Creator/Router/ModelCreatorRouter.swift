@@ -9,21 +9,16 @@
 import Foundation
 import UIKit
 
-class ModelCreatorRouter: ModelCreatorRouterInput {
+class ModelCreatorRouter: CommonRouter, ModelCreatorRouterInput {
     
-    weak var view: UIViewController!
+    weak var view: UIViewController?
     
     func dismiss() {
-        view.dismiss(animated: true)
+        view?.dismiss(animated: true)
     }
     
     func presentFieldCreator(_ usedFieldNames: [String]) {
         
-        view.present(FieldCreatorAssembly.configureModule(usedNames: usedFieldNames), animated: true)
-    }
-    
-    func showErrorAlert(message: String) {
-        
-        view.present(UIAlertController.messageAlert(title: "Error", message: message, tintColor: .systemGreen), animated: true)
+        view?.present(FieldCreatorAssembly.configureModule(usedNames: usedFieldNames), animated: true)
     }
 }

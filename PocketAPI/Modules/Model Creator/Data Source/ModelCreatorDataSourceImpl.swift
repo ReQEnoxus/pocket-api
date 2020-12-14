@@ -11,7 +11,7 @@ import UIKit
 
 class ModelCreatorDataSourceImpl: NSObject, ModelCreatorDataSource {
     
-    var models: [NameTypePair] = []
+    var models: [FieldViewModel] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count

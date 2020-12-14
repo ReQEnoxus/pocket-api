@@ -26,7 +26,7 @@ class IPUtil {
 
             // Check for IPv4 or IPv6 interface:
             let addrFamily = interface.ifa_addr.pointee.sa_family
-            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+            if addrFamily == UInt8(AF_INET) {
 
                 // Check interface name:
                 let name = String(cString: interface.ifa_name)

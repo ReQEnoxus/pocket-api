@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Entity
 
 class ModelCreatorAssembly {
     
@@ -30,6 +31,7 @@ class ModelCreatorAssembly {
         router.view = view
         
         interactor.presenter = presenter
+        interactor.typeManager = TypeManagerWrapper.shared
         
         return UINavigationController(rootViewController: view)
     }

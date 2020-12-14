@@ -6,12 +6,15 @@
 //  Copyright © 2020 Enoxus. All rights reserved.
 //
 
-import Foundation
+import Entity
 
 class FieldCreatorPresenter: FieldCreatorViewOutput {
     
     var router: FieldCreatorRouterInput!
     var interactor: FieldCreatorInteractorInput!
+    var currentType: BasicType?
+    
+    weak var view: FieldCreatorViewInput!
     
     var usedNames: [String]!
     
@@ -19,9 +22,9 @@ class FieldCreatorPresenter: FieldCreatorViewOutput {
         router.dismiss()
     }
     
-    func didPressedCreate(name: String?, selectedIndex: Int?) {
+    func didPressedCreate(name: String?) {
         
-        guard let name = name, !name.isEmpty, let index = selectedIndex else {
+        guard let name = name, !name.isEmpty else {
             
             router.showErrorAlert(message: "Please, specify a name for the field")
             return
@@ -31,12 +34,32 @@ class FieldCreatorPresenter: FieldCreatorViewOutput {
         }
         else {
             
+            guard let type = currentType else {
+                router.showErrorAlert(message: "Please, specify type for the field")
+                return
+            }
+            
             let field = NameTypePair(name: name
                                             .replacingOccurrences(of: " ", with: String())
                                             .replacingOccurrences(of: ".", with: String()),
-                                     type: SupportedPrimitives.availableCases()[index])
+                                     type: type)
             interactor.createFieldAndNotify(field)
             router.dismiss()
         }
+    }
+    
+    func didPressedSelectType() {
+        router.showTypeConstructor(with: currentType)
+    }
+    
+    func viewDidLoad() {
+        interactor.startObservingNewBasicTypeNotifications()
+    }
+}
+
+extension FieldCreatorPresenter: FieldCreatorInteractorOutput {
+    func didCreateNewType(type: BasicType) {
+        currentType = type
+        view.displayCurrentTypeName(with: TypeFormatter.representation(of: type))
     }
 }
