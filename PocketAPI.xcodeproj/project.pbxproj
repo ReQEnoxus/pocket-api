@@ -63,6 +63,7 @@
 		732474E02586494E00CD243C /* EntityError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732474DF2586494D00CD243C /* EntityError.swift */; };
 		732474E425864A2900CD243C /* DependencyCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732474E325864A2900CD243C /* DependencyCheckService.swift */; };
 		732EE84824AA0B7400AF448E /* ResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732EE84724AA0B7400AF448E /* ResponseEntity.swift */; };
+		7334947C26766CF0007DED95 /* SilencePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7334947B26766CF0007DED95 /* SilencePlayer.swift */; };
 		734D665624A358AF00B77AE8 /* ViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734D665524A358AF00B77AE8 /* ViewController+NavBar.swift */; };
 		734D665924A35EFE00B77AE8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734D665824A35EFE00B77AE8 /* ViewModel.swift */; };
 		734D665C24A3603400B77AE8 /* AddControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734D665B24A3603400B77AE8 /* AddControlView.swift */; };
@@ -163,6 +164,7 @@
 		732474DF2586494D00CD243C /* EntityError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityError.swift; sourceTree = "<group>"; };
 		732474E325864A2900CD243C /* DependencyCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyCheckService.swift; sourceTree = "<group>"; };
 		732EE84724AA0B7400AF448E /* ResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEntity.swift; sourceTree = "<group>"; };
+		7334947B26766CF0007DED95 /* SilencePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilencePlayer.swift; sourceTree = "<group>"; };
 		734D665524A358AF00B77AE8 /* ViewController+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NavBar.swift"; sourceTree = "<group>"; };
 		734D665824A35EFE00B77AE8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		734D665B24A3603400B77AE8 /* AddControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddControlView.swift; sourceTree = "<group>"; };
@@ -738,6 +740,7 @@
 			children = (
 				73CAE20E24A0EF410059C945 /* IPUtil.swift */,
 				73112F62258107E0006A18C6 /* TypeFormatter.swift */,
+				7334947B26766CF0007DED95 /* SilencePlayer.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -888,6 +891,7 @@
 				734D667D24A4CEA400B77AE8 /* ModelCreatorPresenter.swift in Sources */,
 				73112FAC25827364006A18C6 /* FieldCreatorViewInput.swift in Sources */,
 				7315846A24A8AE82000766A1 /* DocsGenerator.swift in Sources */,
+				7334947C26766CF0007DED95 /* SilencePlayer.swift in Sources */,
 				7318667124A741290075D1C6 /* ModelCreatorRouterInput.swift in Sources */,
 				732474D325861DE600CD243C /* TypeManager.swift in Sources */,
 				7318666B24A73AB40075D1C6 /* ModelCreatorInteractorInput.swift in Sources */,

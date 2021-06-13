@@ -12,10 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var sharedServer: ServerService!
+    let silencePlayer = SilencePlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         sharedServer = ServerServiceImpl.shared
+        silencePlayer.play()
         return true
     }
 
